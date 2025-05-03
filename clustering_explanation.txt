@@ -1,0 +1,19 @@
+=== Phân tích phân cụm cầu thủ ===
+
+1. Số lượng cụm tối ưu:
+Số lượng cụm tối ưu được chọn là 2, dựa trên điểm Silhouette cao nhất.
+Lý do chọn số cụm này:
+- Phương pháp Elbow Method cho thấy inertia giảm mạnh ở một số giá trị k nhỏ, nhưng không luôn rõ ràng để xác định điểm 'khuỷu tay' chính xác.
+- Điểm Silhouette đo lường mức độ gắn kết và tách biệt của các cụm. Giá trị cao nhất tại k=2 cho thấy các cầu thủ được phân cụm tốt, với sự tương đồng cao trong cụm và khác biệt rõ ràng giữa các cụm.
+- Số cụm 2 hợp lý trong bối cảnh bóng đá, vì các cầu thủ có thể được chia thành các nhóm như thủ môn, hậu vệ, tiền vệ, tiền đạo, hoặc các vai trò chuyên biệt hơn (ví dụ: tiền vệ phòng ngự, tiền đạo cánh).
+
+2. Nhận xét về kết quả phân cụm:
+- Kết quả phân cụm được trực quan hóa trong 'player_clusters.png', sử dụng PCA để giảm chiều dữ liệu xuống 2 chiều. Mỗi điểm đại diện cho một cầu thủ, và màu sắc biểu thị cụm.
+- Tỷ lệ phương sai giải thích bởi hai thành phần chính là 0.37 và 0.18, tổng cộng 0.55. Giá trị này cho thấy mức độ thông tin được giữ lại sau khi giảm chiều. Nếu tỷ lệ thấp (<0.7), một số thông tin có thể bị mất, nhưng biểu đồ vẫn hữu ích để trực quan hóa.
+- Các cụm có thể đại diện cho các kiểu cầu thủ khác nhau, ví dụ:
+  + Cụm chứa các thủ môn, với các chỉ số như Save%, CS% cao và các chỉ số tấn công thấp.
+  + Cụm chứa các tiền đạo, với Goals, xG, SoT% cao.
+  + Cụm chứa các tiền vệ, với PrgP, PrgR, hoặc Passes Completed cao.
+- Biểu đồ phân cụm cho thấy sự tách biệt giữa các cụm. Nếu các điểm dữ liệu chồng chéo, điều này có thể do dữ liệu phức tạp hoặc số cụm chưa tối ưu hoàn toàn.
+- Việc sử dụng SimpleImputer để điền giá trị thiếu bằng giá trị trung bình có thể ảnh hưởng đến tính chính xác của cụm, đặc biệt với các thống kê không áp dụng (như Save% cho không phải thủ môn). Trong tương lai, có thể xem xét loại bỏ các cột không liên quan theo vị trí cầu thủ trước khi phân cụm.
+- Kết quả phân cụm có thể được sử dụng để phân tích chiến thuật, ví dụ: xác định các cầu thủ có phong cách chơi tương tự hoặc tìm kiếm cầu thủ thay thế dựa trên cụm.

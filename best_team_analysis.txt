@@ -1,0 +1,94 @@
+=== Team Performance Analysis ===
+
+Teams Leading in Each Statistic:
+Goals: Liverpool (Mean: 3.57)
+Assists: Liverpool (Mean: 2.67)
+Yellow Cards: Crystal Palace (Mean: 3.74)
+Red Cards: Arsenal (Mean: 0.23)
+xG: Liverpool (Mean: 3.52)
+xAG: Liverpool (Mean: 2.54)
+PrgC: Manchester City (Mean: 39.60)
+PrgP: Liverpool (Mean: 79.57)
+PrgR: Liverpool (Mean: 78.81)
+Gls/90: Manchester City (Mean: 0.20)
+Ast/90: Liverpool (Mean: 0.15)
+xG/90: Aston Villa (Mean: 0.20)
+xAG/90: Chelsea (Mean: 0.15)
+GA90: Leicester City (Mean: 2.72)
+Save%: Bournemouth (Mean: 0.80)
+CS%: Aston Villa (Mean: 0.58)
+PK Save%: Everton (Mean: 100.00)
+SoT%: Nott'ham Forest (Mean: 0.41)
+SoT/90: Bournemouth (Mean: 0.55)
+G/Sh: Manchester City (Mean: 0.13)
+Dist: Nott'ham Forest (Mean: 18.68)
+Cmp: Liverpool (Mean: 756.10)
+Cmp%: Manchester City (Mean: 86.62)
+TotDist: Liverpool (Mean: 12863.48)
+KP: Liverpool (Mean: 21.05)
+1/3: Liverpool (Mean: 66.00)
+PPA: Liverpool (Mean: 18.38)
+CrsPA: Fulham (Mean: 3.82)
+PrgP.1: Liverpool (Mean: 79.57)
+Short Cmp%: Manchester City (Mean: 92.18)
+Medium Cmp%: Manchester City (Mean: 89.53)
+Long Cmp%: Manchester City (Mean: 60.70)
+SCA: Liverpool (Mean: 47.90)
+SCA90: Liverpool (Mean: 2.62)
+GCA: Liverpool (Mean: 6.24)
+GCA90: Liverpool (Mean: 0.35)
+Tkl: Crystal Palace (Mean: 34.11)
+TklW: Crystal Palace (Mean: 19.79)
+Att: Crystal Palace (Mean: 29.11)
+Lost: Crystal Palace (Mean: 14.63)
+Blocks: Crystal Palace (Mean: 21.11)
+Sh: Brentford (Mean: 8.19)
+Pass: Crystal Palace (Mean: 15.21)
+Int: Crystal Palace (Mean: 13.68)
+Touches: Liverpool (Mean: 1070.52)
+Def Pen: Brentford (Mean: 138.52)
+Def 3rd: Brentford (Mean: 348.86)
+Mid 3rd: Liverpool (Mean: 484.10)
+Att 3rd: Manchester City (Mean: 335.32)
+Att Pen: Liverpool (Mean: 54.14)
+Att (Take-Ons): Arsenal (Mean: 29.23)
+Succ% (Take-Ons): Liverpool (Mean: 54.84)
+Tkld% (Take-Ons): Leicester City (Mean: 48.47)
+Carries: Manchester City (Mean: 626.96)
+PrgDist: Manchester City (Mean: 1940.32)
+ProgC: Manchester City (Mean: 39.60)
+1/3 (Carries): Manchester City (Mean: 29.48)
+CPA: Manchester City (Mean: 13.84)
+Mis: Nott'ham Forest (Mean: 22.86)
+Dis: Newcastle Utd (Mean: 18.05)
+Rec: Liverpool (Mean: 747.81)
+PrgR.1: Liverpool (Mean: 78.81)
+Fls: Bournemouth (Mean: 19.35)
+Fld: Crystal Palace (Mean: 18.05)
+Off: Nott'ham Forest (Mean: 3.57)
+Crs: Fulham (Mean: 34.41)
+Recov: Crystal Palace (Mean: 73.32)
+Won (Aerial): Brentford (Mean: 26.00)
+Lost (Aerial): Crystal Palace (Mean: 28.74)
+Won% (Aerial): Southampton (Mean: 54.51)
+
+Leadership Counts:
+Liverpool: Leads in 23 statistics
+Manchester City: Leads in 13 statistics
+Crystal Palace: Leads in 11 statistics
+Nott'ham Forest: Leads in 4 statistics
+Brentford: Leads in 4 statistics
+Bournemouth: Leads in 3 statistics
+Fulham: Leads in 2 statistics
+Aston Villa: Leads in 2 statistics
+Arsenal: Leads in 2 statistics
+Leicester City: Leads in 2 statistics
+Chelsea: Leads in 1 statistics
+Everton: Leads in 1 statistics
+Newcastle Utd: Leads in 1 statistics
+Southampton: Leads in 1 statistics
+
+Best-Performing Team Analysis:
+Based on the analysis, Liverpool is considered the best-performing team in the 2024-2025 Premier League season.
+This team leads in 23 out of 70 statistics, indicating strong performance across multiple aspects of the game, such as goals, assists, defensive actions, and possession metrics.
+This analysis is based on mean statistics per team, which reflects the overall contribution of players with more than 90 minutes of playtime.
