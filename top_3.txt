@@ -1,2 +1,840 @@
-
 ========================= GOALS =========================
+
+Top 3:
+Mohamed (Liverpool): 27.00
+Alexander (Newcastle Utd): 21.00
+Erling (Manchester City): 21.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+
+========================= ASSISTS =========================
+
+Top 3:
+Mohamed (Liverpool): 18.00
+Jacob (Newcastle Utd): 11.00
+Antonee (Fulham): 10.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+
+========================= YELLOW CARDS =========================
+
+Top 3:
+Saša (Fulham): 12.00
+Will (Crystal Palace): 11.00
+Flynn (Southampton): 10.00
+
+Bottom 3:
+Abdul (Leicester City): 0.00
+Adam (Brighton): 0.00
+Albert (Southampton): 0.00
+
+========================= RED CARDS =========================
+
+Top 3:
+Bruno (Manchester Utd): 2.00
+Jack (Southampton): 2.00
+Myles (Arsenal): 2.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Aaron (West Ham): 0.00
+
+========================= XG =========================
+
+Top 3:
+Mohamed (Liverpool): 23.70
+Erling (Manchester City): 20.80
+Alexander (Newcastle Utd): 17.50
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Abdukodir (Manchester City): 0.00
+Adam (Brighton): 0.00
+
+========================= XAG =========================
+
+Top 3:
+Mohamed (Liverpool): 12.10
+Cole (Chelsea): 9.20
+Son (Tottenham): 8.20
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Albert (Southampton): 0.00
+Alex (Southampton): 0.00
+
+========================= PRGC =========================
+
+Top 3:
+Jeremy (Manchester City): 172.00
+Mohamed (Liverpool): 138.00
+Kaoru (Brighton): 136.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= PRGP =========================
+
+Top 3:
+Bruno (Manchester Utd): 264.00
+Joško (Manchester City): 231.00
+Bruno (Newcastle Utd): 227.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alisson (Liverpool): 0.00
+
+========================= PRGR =========================
+
+Top 3:
+Mohamed (Liverpool): 407.00
+Bryan (Brentford): 300.00
+Kaoru (Brighton): 274.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= GLS/90 =========================
+
+Top 3:
+James (Manchester City): 1.21
+Donyell (Aston Villa): 1.01
+Jáder (Aston Villa): 0.99
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+
+========================= AST/90 =========================
+
+Top 3:
+Tyrique (Chelsea): 0.88
+Bukayo (Arsenal): 0.63
+Danny (West Ham): 0.63
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+
+========================= XG/90 =========================
+
+Top 3:
+James (Manchester City): 1.10
+Marco (Aston Villa): 0.81
+Erling (Manchester City): 0.76
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Abdukodir (Manchester City): 0.00
+Adam (Brighton): 0.00
+
+========================= XAG/90 =========================
+
+Top 3:
+Tyrique (Chelsea): 0.63
+Mykhailo (Chelsea): 0.58
+Luis (Bournemouth): 0.54
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= GA90 =========================
+
+Top 3:
+Danny (Leicester City): 4.00
+Christian (Ipswich Town): 2.67
+Alex (Southampton): 2.60
+
+Bottom 3:
+Jason (Brighton): 0.50
+David (Arsenal): 0.82
+Alisson (Liverpool): 0.83
+
+========================= SAVE% =========================
+
+Top 3:
+Neto (Bournemouth): 0.85
+Mark (Bournemouth): 0.80
+David (Arsenal): 0.77
+
+Bottom 3:
+Danny (Leicester City): 0.40
+Hákon (Brentford): 0.50
+Robin (Aston Villa): 0.56
+
+========================= CS% =========================
+
+Top 3:
+Hákon (Brentford): 1.00
+Robin (Aston Villa): 1.00
+Jason (Brighton): 0.50
+
+Bottom 3:
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+Danny (Leicester City): 0.00
+
+========================= PK SAVE% =========================
+
+Top 3:
+Caoimhín (Liverpool): 100.00
+Jordan (Everton): 100.00
+Dean (Crystal Palace): 50.00
+
+Bottom 3:
+Alex (Southampton): 0.00
+Arijanet (Ipswich Town): 0.00
+Bart (Brighton): 0.00
+
+========================= SOT% =========================
+
+Top 3:
+Adam (Brighton): 1.00
+Archie (Tottenham): 1.00
+Harry (Ipswich Town): 1.00
+
+Bottom 3:
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+Adam (Bournemouth): 0.00
+
+========================= SOT/90 =========================
+
+Top 3:
+Julio (Brighton): 3.37
+Donyell (Aston Villa): 2.35
+Luis (Bournemouth): 2.29
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+
+========================= G/SH =========================
+
+Top 3:
+John (Manchester City): 1.00
+Axel (Chelsea): 0.50
+Myles (Arsenal): 0.50
+
+Bottom 3:
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+Abdul (Leicester City): 0.00
+
+========================= DIST =========================
+
+Top 3:
+Ibrahim (Nott'ham Forest): 32.00
+Ryan (Southampton): 31.60
+Nathaniel (Crystal Palace): 31.40
+
+Bottom 3:
+Kieran (Arsenal): 2.60
+Harry (Ipswich Town): 4.50
+William (Arsenal): 4.50
+
+========================= CMP =========================
+
+Top 3:
+Virgil (Liverpool): 2371.00
+Joško (Manchester City): 2157.00
+William (Arsenal): 2110.00
+
+Bottom 3:
+Albert (Southampton): 13.00
+Ali (Ipswich Town): 25.00
+Callum (Newcastle Utd): 26.00
+
+========================= CMP% =========================
+
+Top 3:
+Manuel (Manchester City): 93.90
+Nathan (Manchester City): 93.90
+William (Arsenal): 93.90
+
+Bottom 3:
+Matz (Nott'ham Forest): 50.60
+George (Ipswich Town): 53.10
+Beto (Everton): 56.90
+
+========================= TOTDIST =========================
+
+Top 3:
+Virgil (Liverpool): 43424.00
+Levi (Chelsea): 38297.00
+William (Arsenal): 36493.00
+
+Bottom 3:
+Albert (Southampton): 135.00
+Ali (Ipswich Town): 278.00
+Callum (Newcastle Utd): 352.00
+
+========================= KP =========================
+
+Top 3:
+Bruno (Manchester Utd): 77.00
+Cole (Chelsea): 76.00
+Mohamed (Liverpool): 75.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alphonse (West Ham): 0.00
+
+========================= 1/3 =========================
+
+Top 3:
+Virgil (Liverpool): 258.00
+Youri (Aston Villa): 217.00
+Joško (Manchester City): 211.00
+
+Bottom 3:
+Ali (Ipswich Town): 0.00
+Chiedozie (Ipswich Town): 0.00
+Jason (Brighton): 0.00
+
+========================= PPA =========================
+
+Top 3:
+Mohamed (Liverpool): 80.00
+Martin (Arsenal): 77.00
+Alex (Fulham): 74.00
+
+Bottom 3:
+Abdukodir (Manchester City): 0.00
+Albert (Southampton): 0.00
+Alex (Southampton): 0.00
+
+========================= CRSPA =========================
+
+Top 3:
+Antonee (Fulham): 26.00
+Milos (Bournemouth): 22.00
+Pedro (Tottenham): 22.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Abdoulaye (Everton): 0.00
+Abdukodir (Manchester City): 0.00
+
+========================= PRGP.1 =========================
+
+Top 3:
+Bruno (Manchester Utd): 264.00
+Joško (Manchester City): 231.00
+Bruno (Newcastle Utd): 227.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alisson (Liverpool): 0.00
+
+========================= SHORT CMP% =========================
+
+Top 3:
+Antonín (Tottenham): 100.00
+Arijanet (Ipswich Town): 100.00
+Caoimhín (Liverpool): 100.00
+
+Bottom 3:
+Paul (Southampton): 63.80
+George (Ipswich Town): 65.50
+Rodrigo (Fulham): 67.60
+
+========================= MEDIUM CMP% =========================
+
+Top 3:
+Alex (Ipswich Town): 100.00
+Caoimhín (Liverpool): 100.00
+Danny (Leicester City): 100.00
+
+Bottom 3:
+George (Ipswich Town): 45.50
+Beto (Everton): 49.20
+Albert (Southampton): 50.00
+
+========================= LONG CMP% =========================
+
+Top 3:
+Andy (West Ham): 100.00
+Antony (Manchester Utd): 100.00
+Chiedozie (Ipswich Town): 100.00
+
+Bottom 3:
+Enes (Bournemouth): 0.00
+Marshall (Wolves): 0.00
+Ross (Southampton): 0.00
+
+========================= SCA =========================
+
+Top 3:
+Cole (Chelsea): 177.00
+Bruno (Manchester Utd): 157.00
+Mohamed (Liverpool): 144.00
+
+Bottom 3:
+Alex (Southampton): 0.00
+Ben (Brentford): 0.00
+Benoît (Chelsea): 0.00
+
+========================= SCA90 =========================
+
+Top 3:
+Philip (Bournemouth): 7.83
+Luis (West Ham): 6.52
+Marcus (Aston Villa): 6.36
+
+Bottom 3:
+Alex (Southampton): 0.00
+Ben (Brentford): 0.00
+Benoît (Chelsea): 0.00
+
+========================= GCA =========================
+
+Top 3:
+Mohamed (Liverpool): 24.00
+Bukayo (Arsenal): 22.00
+Mikkel (Brentford): 21.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+
+========================= GCA90 =========================
+
+Top 3:
+Solly (Brighton): 1.70
+Bukayo (Arsenal): 1.39
+Harvey (Liverpool): 0.98
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+
+========================= TKL =========================
+
+Top 3:
+Idrissa (Everton): 119.00
+Daniel (Crystal Palace): 107.00
+Noussair (Manchester Utd): 100.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= TKLW =========================
+
+Top 3:
+Idrissa (Everton): 70.00
+Daniel (Crystal Palace): 68.00
+Moisés (Chelsea): 61.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= ATT =========================
+
+Top 3:
+Trent (Liverpool): 100.00
+João (Wolves): 93.00
+Alexis (Liverpool): 92.00
+
+Bottom 3:
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+Armando (Everton): 0.00
+
+========================= LOST =========================
+
+Top 3:
+João (Wolves): 56.00
+Trent (Liverpool): 53.00
+Elliot (Nott'ham Forest): 49.00
+
+Bottom 3:
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+Antonín (Tottenham): 0.00
+
+========================= BLOCKS =========================
+
+Top 3:
+Nathan (Brentford): 68.00
+Murillo (Nott'ham Forest): 64.00
+Tyrick (Crystal Palace): 61.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= SH =========================
+
+Top 3:
+Nathan (Brentford): 48.00
+Dara (Ipswich Town): 45.00
+James (Everton): 42.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Abdul (Leicester City): 0.00
+Adama (Fulham): 0.00
+
+========================= PASS =========================
+
+Top 3:
+Alexis (Liverpool): 53.00
+Tyrick (Crystal Palace): 49.00
+Antoine (Bournemouth): 48.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Albert (Southampton): 0.00
+Alex (Southampton): 0.00
+
+========================= INT =========================
+
+Top 3:
+Aaron (West Ham): 57.00
+Antonee (Fulham): 56.00
+Ryan (Liverpool): 56.00
+
+Bottom 3:
+Albert (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= TOUCHES =========================
+
+Top 3:
+Virgil (Liverpool): 2915.00
+Joško (Manchester City): 2707.00
+Levi (Chelsea): 2591.00
+
+Bottom 3:
+Albert (Southampton): 38.00
+Ali (Ipswich Town): 53.00
+Danny (Leicester City): 55.00
+
+========================= DEF PEN =========================
+
+Top 3:
+Mark (Brentford): 1261.00
+Bernd (Fulham): 1046.00
+André (Manchester Utd): 975.00
+
+Bottom 3:
+Emi (Aston Villa): 0.00
+Solly (Brighton): 0.00
+Callum (Newcastle Utd): 1.00
+
+========================= DEF 3RD =========================
+
+Top 3:
+Mark (Brentford): 1569.00
+Jordan (Everton): 1401.00
+Bernd (Fulham): 1296.00
+
+Bottom 3:
+Callum (Newcastle Utd): 5.00
+Solly (Brighton): 5.00
+Ali (Ipswich Town): 6.00
+
+========================= MID 3RD =========================
+
+Top 3:
+Virgil (Liverpool): 1624.00
+Moisés (Chelsea): 1395.00
+William (Arsenal): 1377.00
+
+Bottom 3:
+Alex (Southampton): 0.00
+Danny (Leicester City): 0.00
+Fraser (Tottenham): 0.00
+
+========================= ATT 3RD =========================
+
+Top 3:
+Mohamed (Liverpool): 967.00
+Bryan (Brentford): 851.00
+Bruno (Manchester Utd): 848.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= ATT PEN =========================
+
+Top 3:
+Mohamed (Liverpool): 310.00
+Antoine (Bournemouth): 174.00
+Erling (Manchester City): 170.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= ATT (TAKE-ONS) =========================
+
+Top 3:
+Mohammed (West Ham): 177.00
+Jeremy (Manchester City): 171.00
+Morgan (Aston Villa): 145.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= SUCC% (TAKE-ONS) =========================
+
+Top 3:
+Aaron (West Ham): 100.00
+Alisson (Liverpool): 100.00
+Andy (West Ham): 100.00
+
+Bottom 3:
+Abdukodir (Manchester City): 0.00
+Albert (Southampton): 0.00
+Armel (Southampton): 0.00
+
+========================= TKLD% (TAKE-ONS) =========================
+
+Top 3:
+Abdukodir (Manchester City): 100.00
+Albert (Southampton): 100.00
+Armel (Southampton): 100.00
+
+Bottom 3:
+Aaron (West Ham): 0.00
+Alisson (Liverpool): 0.00
+Andy (West Ham): 0.00
+
+========================= CARRIES =========================
+
+Top 3:
+Joško (Manchester City): 1753.00
+Virgil (Liverpool): 1640.00
+Jan (Brighton): 1536.00
+
+Bottom 3:
+Albert (Southampton): 18.00
+Kosta (Aston Villa): 27.00
+Ali (Ipswich Town): 29.00
+
+========================= PRGDIST =========================
+
+Top 3:
+Jan (Brighton): 6643.00
+Joško (Manchester City): 5195.00
+Rúben (Manchester City): 4900.00
+
+Bottom 3:
+Albert (Southampton): 15.00
+Massimo (Ipswich Town): 25.00
+Harrison (Fulham): 27.00
+
+========================= PROGC =========================
+
+Top 3:
+Jeremy (Manchester City): 172.00
+Mohamed (Liverpool): 138.00
+Kaoru (Brighton): 136.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= 1/3 (CARRIES) =========================
+
+Top 3:
+Alex (Fulham): 94.00
+Joško (Manchester City): 89.00
+Jeremy (Manchester City): 80.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Albert (Southampton): 0.00
+Alex (Southampton): 0.00
+
+========================= CPA =========================
+
+Top 3:
+Mohamed (Liverpool): 110.00
+Jeremy (Manchester City): 78.00
+Noni (Chelsea): 75.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+
+========================= MIS =========================
+
+Top 3:
+Mohamed (Liverpool): 102.00
+Liam (Ipswich Town): 92.00
+Morgan (Aston Villa): 92.00
+
+Bottom 3:
+Alex (Southampton): 0.00
+Alphonse (West Ham): 0.00
+Antonín (Tottenham): 0.00
+
+========================= DIS =========================
+
+Top 3:
+Mohammed (West Ham): 84.00
+Bruno (Newcastle Utd): 72.00
+Dejan (Tottenham): 70.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Alex (Southampton): 0.00
+
+========================= REC =========================
+
+Top 3:
+Virgil (Liverpool): 1996.00
+Joško (Manchester City): 1984.00
+Levi (Chelsea): 1902.00
+
+Bottom 3:
+Albert (Southampton): 21.00
+Neto (Bournemouth): 28.00
+Michael (Brentford): 29.00
+
+========================= PRGR.1 =========================
+
+Top 3:
+Mohamed (Liverpool): 407.00
+Bryan (Brentford): 300.00
+Kaoru (Brighton): 274.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= FLS =========================
+
+Top 3:
+Antoine (Bournemouth): 64.00
+João (Wolves): 64.00
+Liam (Ipswich Town): 64.00
+
+Bottom 3:
+Albert (Southampton): 0.00
+Alex (Southampton): 0.00
+Alisson (Liverpool): 0.00
+
+========================= FLD =========================
+
+Top 3:
+Bruno (Newcastle Utd): 98.00
+James (Tottenham): 63.00
+Matheus (Wolves): 63.00
+
+Bottom 3:
+Alphonse (West Ham): 0.00
+Andrés (Aston Villa): 0.00
+Antonín (Tottenham): 0.00
+
+========================= OFF =========================
+
+Top 3:
+Dominic (Everton): 27.00
+Jamie (Leicester City): 23.00
+Chris (Nott'ham Forest): 22.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Aaron (West Ham): 0.00
+Abdukodir (Manchester City): 0.00
+
+========================= CRS =========================
+
+Top 3:
+Bryan (Brentford): 171.00
+Pedro (Tottenham): 168.00
+Bruno (Manchester Utd): 164.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Alex (Southampton): 0.00
+Alex (Ipswich Town): 0.00
+
+========================= RECOV =========================
+
+Top 3:
+Moisés (Chelsea): 192.00
+Bruno (Manchester Utd): 187.00
+Ryan (Bournemouth): 182.00
+
+Bottom 3:
+Danny (Leicester City): 1.00
+Fraser (Tottenham): 1.00
+Hákon (Brentford): 1.00
+
+========================= WON (AERIAL) =========================
+
+Top 3:
+Dan (Newcastle Utd): 122.00
+Virgil (Liverpool): 109.00
+Nathan (Brentford): 103.00
+
+Bottom 3:
+Andrés (Aston Villa): 0.00
+Antony (Manchester Utd): 0.00
+Billy (Brighton): 0.00
+
+========================= LOST (AERIAL) =========================
+
+Top 3:
+Chris (Nott'ham Forest): 117.00
+Jean-Philippe (Crystal Palace): 95.00
+Jørgen (Wolves): 94.00
+
+Bottom 3:
+Aaron (Southampton): 0.00
+Albert (Southampton): 0.00
+Alex (Southampton): 0.00
+
+========================= WON% (AERIAL) =========================
+
+Top 3:
+Aaron (Southampton): 100.00
+Albert (Southampton): 100.00
+Alex (Southampton): 100.00
+
+Bottom 3:
+Andrés (Aston Villa): 0.00
+Antony (Manchester Utd): 0.00
+Emi (Aston Villa): 0.00
+
