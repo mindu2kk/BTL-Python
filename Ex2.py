@@ -2,54 +2,48 @@ import pandas as pd
 import numpy as np
 import os
 import matplotlib
-# Use a non-interactive backend to avoid Tkinter issues
-matplotlib.use('Agg')
+matplotlib.use('Agg')  # Non-interactive backend
 import matplotlib.pyplot as plt
 import re
 
-# Suppress the FutureWarning by opting into the future behavior
+# Suppress FutureWarning
 pd.set_option('future.no_silent_downcasting', True)
 
-# Load the data with the same encoding as the first script
+# Load data
 try:
     df = pd.read_csv("results.csv", encoding='utf-8')
-    print("Columns in results.csv:", list(df.columns))  # Debug: Print column names
+    print("Columns in results.csv:", list(df.columns))
 except FileNotFoundError:
-    print("Error: results.csv not found. Please ensure the file is in the same directory.")
+    print("Error: results.csv not found.")
     exit(1)
 
-# Clean the 'Minutes' column by removing commas and converting to numeric
+# Clean 'Minutes' column
 df['Minutes'] = df['Minutes'].str.replace(',', '').pipe(pd.to_numeric, errors='coerce')
 
-# Define percentage columns based on results.csv
+# Define and clean percentage columns
 percent_cols = ['Won%', 'Save%', 'Possession_Succ%', 'Possession_Tkld%', 'Pen Save%', 'CS%', 'SoT%']
-# Filter out columns that don't exist in the DataFrame
 percent_cols = [col for col in percent_cols if col in df.columns]
 if not percent_cols:
-    print("Warning: None of the specified percent_cols exist in the DataFrame.")
+    print("Warning: No percent_cols found.")
 else:
     print("Processing percent_cols:", percent_cols)
-for col in percent_cols:
-    # Ensure the column is treated as string before using .str
-    df[col] = (
-        df[col]
-        .astype(str)  # Convert to string to allow .str operations
-        .replace('N/a', np.nan)
-        .str.replace(r'[^\d.]', '', regex=True)
-        .pipe(pd.to_numeric, errors='coerce')  # Convert to numeric after cleaning
-        / 100
-    )
+    for col in percent_cols:
+        df[col] = (
+            df[col]
+            .astype(str)
+            .replace('N/a', np.nan)
+            .str.replace(r'[^\d.]', '', regex=True)
+            .pipe(pd.to_numeric, errors='coerce') / 100
+        )
 
 # Convert GA90 to numeric
 df['GA90'] = pd.to_numeric(df['GA90'], errors='coerce')
 
-# Define stats columns based on results.csv structure
-# Non-stats columns: Player, Nation, Team, Position, Age, Match played, Starts, Minutes
-# Stats start from 'Goals' (index 8)
+# Define stats columns (starting from 'Goals')
 stats_columns = df.columns[8:].tolist()
-print("Stats columns:", stats_columns)  # Debug: Print stats columns
+print("Stats columns:", stats_columns)
 
-# Convert all stats columns to numeric, handling "N/a"
+# Convert stats columns to numeric
 for stat in stats_columns:
     df[stat] = pd.to_numeric(df[stat], errors='coerce')
 
@@ -58,7 +52,6 @@ def generate_top_bottom_3():
         with open('top_3.txt', 'w', encoding='utf-8') as f:
             for stat in stats_columns:
                 df[stat] = pd.to_numeric(df[stat], errors='coerce')
-
                 valid_count = df[stat].count()
                 
                 if valid_count < 3:
@@ -67,52 +60,51 @@ def generate_top_bottom_3():
 
                 f.write(f"\n{'='*25} {stat.upper()} {'='*25}\n")
                 
-                # Use 'Player' and 'Team' to match results.csv column names
-                top3 = df[['Player', 'Team', stat]].nlargest(3, stat)
+                # Use 'First Name' instead of 'Player'
+                top3 = df[['First Name', 'Team', stat]].nlargest(3, stat)
                 f.write("\nTop 3:\n")
                 for _, row in top3.iterrows():
                     value = row[stat] if not pd.isna(row[stat]) else 0
-                    f.write(f"{row['Player']} ({row['Team']}): {value:.2f}\n")
+                    f.write(f"{row['First Name']} ({row['Team']}): {value:.2f}\n")
                 
-                bottom3 = df[['Player', 'Team', stat]].nsmallest(3, stat)
+                bottom3 = df[['First Name', 'Team', stat]].nsmallest(3, stat)
                 f.write("\nBottom 3:\n")
                 for _, row in bottom3.iterrows():
                     value = row[stat] if not pd.isna(row[stat]) else 0
-                    f.write(f"{row['Player']} ({row['Team']}): {value:.2f}\n")
+                    f.write(f"{row['First Name']} ({row['Team']}): {value:.2f}\n")
     except Exception as e:
         print(f"Error in generate_top_bottom_3: {e}")
 
 def calculate_statistics():
     try:
         teams = df['Team'].unique().tolist()
-        results = pd.DataFrame(columns=['Statistic'] + teams + ['all'])
+        # Initialize an empty list to collect rows
+        results_list = []
         
         for stat in stats_columns:
-            # Calculate overall stats
             stat_data = df[stat]
-            if stat_data.count() > 0:  # Only proceed if there are non-NaN values
-                results = pd.concat([
-                    results,
-                    pd.DataFrame({
-                        'Statistic': [f'Median of {stat}', f'Mean of {stat}', f'Std of {stat}'],
-                        'all': [stat_data.median(), stat_data.mean(), stat_data.std()]
-                    })
-                ])
-            
-            # Calculate per-team stats
-            for team in teams:
-                team_data = df[df['Team'] == team][stat]
-                if team_data.count() > 0:  # Only calculate if there are non-NaN values
-                    results.loc[results['Statistic'] == f'Median of {stat}', team] = team_data.median()
-                    results.loc[results['Statistic'] == f'Mean of {stat}', team] = team_data.mean()
-                    results.loc[results['Statistic'] == f'Std of {stat}', team] = team_data.std()
-                else:
-                    # Fill with NaN if no valid data
-                    results.loc[results['Statistic'] == f'Median of {stat}', team] = np.nan
-                    results.loc[results['Statistic'] == f'Mean of {stat}', team] = np.nan
-                    results.loc[results['Statistic'] == f'Std of {stat}', team] = np.nan
-
-        results.to_csv('results2.csv', index=False, float_format="%.2f", encoding='utf-8')
+            if stat_data.count() > 0:
+                # Create a dictionary for overall stats
+                stat_dict = {
+                    'Statistic': [f'Median of {stat}', f'Mean of {stat}', f'Std of {stat}'],
+                    'all': [stat_data.median(), stat_data.mean(), stat_data.std()]
+                }
+                # Add per-team stats
+                for team in teams:
+                    team_data = df[df['Team'] == team][stat]
+                    if team_data.count() > 0:
+                        stat_dict[team] = [team_data.median(), team_data.mean(), team_data.std()]
+                    else:
+                        stat_dict[team] = [np.nan, np.nan, np.nan]
+                # Convert to DataFrame and append to list
+                results_list.append(pd.DataFrame(stat_dict))
+        
+        # Concatenate all results at once
+        if results_list:
+            results = pd.concat(results_list, ignore_index=True)
+            results.to_csv('results2.csv', index=False, float_format="%.2f", encoding='utf-8')
+        else:
+            print("No statistics to calculate.")
     except Exception as e:
         print(f"Error in calculate_statistics: {e}")
 
@@ -121,7 +113,6 @@ def generate_histograms():
         os.makedirs('histograms', exist_ok=True)
         
         for stat in stats_columns:
-            # Overall histogram for all players
             stat_data = df[stat].dropna()
             if not stat_data.empty:
                 plt.figure()
@@ -133,11 +124,9 @@ def generate_histograms():
                 plt.savefig(f'histograms/all_players_{safe_stat}.png', bbox_inches='tight')
                 plt.close()
             
-            # Team-specific histograms
             for team in df['Team'].unique():
                 safe_team = re.sub(r'[\n<>:"/\\|?*()]', '_', team).replace(' ', '_').strip('_')
                 safe_stat = re.sub(r'[^a-zA-Z0-9]', '_', stat)
-                
                 team_data = df[df['Team'] == team][stat].dropna()
                 if not team_data.empty:
                     plt.figure()
@@ -145,22 +134,19 @@ def generate_histograms():
                     plt.title(f'{team} - {stat}')
                     plt.xlabel(stat)
                     plt.ylabel('Frequency')
-                    safe_filename = f'histograms/{safe_team}_{safe_stat}.png'
-                    plt.savefig(safe_filename, bbox_inches='tight')
+                    plt.savefig(f'histograms/{safe_team}_{safe_stat}.png', bbox_inches='tight')
                     plt.close()
     except Exception as e:
         print(f"Error in generate_histograms: {e}")
 
 def analyze_data():
     try:
-        # Calculate mean stats per team
         team_stat = df.groupby('Team')[stats_columns].mean()
         leadership = {}
         leadership_details = []
 
-        # Identify the team with the highest mean score for each statistic
         for stat in stats_columns:
-            if team_stat[stat].count() > 0:  # Only proceed if there are non-NaN values
+            if team_stat[stat].count() > 0:
                 leader = team_stat[stat].idxmax()
                 max_value = team_stat[stat].max()
                 leadership[stat] = leader
@@ -170,19 +156,15 @@ def analyze_data():
                     'Mean Value': f"{max_value:.2f}"
                 })
 
-        # Save leadership details to a CSV file
         leadership_df = pd.DataFrame(leadership_details)
         leadership_df.to_csv('leadership_details.csv', index=False, encoding='utf-8')
 
-        # Count how many times each team leads in a statistic
         leader_counts = pd.Series(leadership.values()).value_counts()
         leader_counts.to_csv('leadership_counts.csv', encoding='utf-8')
 
-        # Determine the best-performing team
-        best_team = leader_counts.idxmax() if not leader_counts.empty else "No team leads in any stat"
+        best_team = leader_counts.idxmax() if not leader_counts.empty else "No team leads"
         best_team_count = leader_counts.max() if not leader_counts.empty else 0
 
-        # Write analysis to a text file
         with open('best_team_analysis.txt', 'w', encoding='utf-8') as f:
             f.write("=== Team Performance Analysis ===\n\n")
             f.write("Teams Leading in Each Statistic:\n")
@@ -191,11 +173,8 @@ def analyze_data():
             f.write("\nLeadership Counts:\n")
             for team, count in leader_counts.items():
                 f.write(f"{team}: Leads in {count} statistics\n")
-            f.write("\nBest-Performing Team Analysis:\n")
-            f.write(f"Based on the analysis, {best_team} is considered the best-performing team in the 2024-2025 Premier League season.\n")
-            f.write(f"This team leads in {best_team_count} out of {len(stats_columns)} statistics, indicating strong performance across multiple aspects of the game, such as goals, assists, defensive actions, and possession metrics.\n")
-            f.write("This analysis is based on mean statistics per team, which reflects the overall contribution of players with more than 90 minutes of playtime.\n")
-
+            f.write("\nBest-Performing Team:\n")
+            f.write(f"{best_team} leads in {best_team_count} statistics, showing strength across multiple metrics.\n")
     except Exception as e:
         print(f"Error in analyze_data: {e}")
 
@@ -206,7 +185,7 @@ def sanitize_filename(filename):
     filename = filename.rstrip('. ')
     return filename
 
-# Run functions with error handling
+# Run functions
 try:
     analyze_data()
     generate_histograms()
