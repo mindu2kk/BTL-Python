@@ -1,0 +1,41 @@
+=== Phương pháp cải tiến ước lượng giá trị ===
+
+1. **Lựa chọn đặc trưng (Features):**
+- **Kỹ năng chuyên môn:** Dribbling, shot_power, finishing (tiền đạo) | tackling, interceptions (hậu vệ) | key_passes, through_balls (tiền vệ) [3][8]
+- **Chỉ số tiềm năng:** Potential_rating, age, improvement_rate (tốc độ cải thiện stats) [8][9]
+- **Hiệu suất nâng cao:** xGChain, progressive_carries, pressures_success (kết hợp stats truyền thống và analytics) [4][7]
+- **Yếu tố thị trường:** Club_ranking, international_caps, social_media_followers [4][7]
+
+2. **Kỹ thuật chọn lọc đặc trưng:**
+- Phân tách đặc trưng theo vị trí (4 model riêng: GK/DF/MF/FW) [4]
+- Sử dụng Recursive Feature Elimination với Cross-Validation [8]
+- Kiểm tra đa cộng tuyến bằng VIF (Variance Inflation Factor) [3]
+
+3. **Stacking Model Architecture:**
+- Lớp cơ sở: XGBoost (xử lý features phi tuyến) + Linear Regression (features tuyến tính) [7][8]
+- Lớp meta: Neural Network (3 hidden layers) kết hợp đầu ra từ lớp cơ sở [5][9]
+- Xử lý imbalance data: SMOTE-Tomek kết hợp undersampling [3]
+
+4. **Triển khai:**
+from sklearn.compose import ColumnTransformer
+from sklearn.pipeline import Pipeline
+from xgboost import XGBRegressor
+# Ví dụ pipeline cho tiền đạo
+fw_features = ['age', 'goals', 'xG', 'dribbling', 'shot_power', 'potential_rating']
+preprocessor = ColumnTransformer([('num', StandardScaler(), fw_features)])
+model = Pipeline([
+    ('preproc', preprocessor),
+    ('regressor', XGBRegressor(
+        objective='reg:squarederror',
+        n_estimators=200,
+        max_depth=5,
+        learning_rate=0.1
+    ))
+])
+```
+**Ưu điểm:**
+- Tích hợp cả FIFA stats và advanced analytics [7][8]
+- Cân bằng giữa performance hiện tại và tiềm năng phát triển [4][9]
+- Giải thích được feature importance qua SHAP values [3][8]
+
+
