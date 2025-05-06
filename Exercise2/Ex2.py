@@ -10,6 +10,7 @@ import re
 pd.set_option('future.no_silent_downcasting', True)
 
 <<<<<<<< HEAD:Exercise2/Ex2.py
+<<<<<<<< HEAD:Exercise2/Ex2.py
 # Get the directory of the script and construct paths
 script_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(script_dir, "..", "Exercise1", "results.csv")
@@ -21,6 +22,14 @@ try:
     print("Columns in results.csv:", list(df.columns))  # Debug: Print column names
 except FileNotFoundError:
     print(f"Error: {file_path} not found. Please ensure the file exists at this location.")
+========
+# Load data
+try:
+    df = pd.read_csv("results.csv", encoding='utf-8')
+    print("Columns in results.csv:", list(df.columns))
+except FileNotFoundError:
+    print("Error: results.csv not found.")
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
 ========
 # Load data
 try:
@@ -42,6 +51,7 @@ if not percent_cols:
 else:
     print("Processing percent_cols:", percent_cols)
 <<<<<<<< HEAD:Exercise2/Ex2.py
+<<<<<<<< HEAD:Exercise2/Ex2.py
 for col in percent_cols:
     df[col] = (
         df[col]
@@ -52,6 +62,8 @@ for col in percent_cols:
         / 100
     )
 ========
+========
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
     for col in percent_cols:
         df[col] = (
             df[col]
@@ -60,16 +72,27 @@ for col in percent_cols:
             .str.replace(r'[^\d.]', '', regex=True)
             .pipe(pd.to_numeric, errors='coerce') / 100
         )
+<<<<<<<< HEAD:Exercise2/Ex2.py
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
+========
 >>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
 
 # Convert GA90 to numeric
 df['GA90'] = pd.to_numeric(df['GA90'], errors='coerce')
 
 <<<<<<<< HEAD:Exercise2/Ex2.py
+<<<<<<<< HEAD:Exercise2/Ex2.py
 # Define stats columns based on results.csv structure
 stats_columns = df.columns[8:].tolist()
 print("Stats columns:", stats_columns)
 
+========
+# Define stats columns (starting from 'Goals')
+stats_columns = df.columns[8:].tolist()
+print("Stats columns:", stats_columns)
+
+# Convert stats columns to numeric
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
 ========
 # Define stats columns (starting from 'Goals')
 stats_columns = df.columns[8:].tolist()
@@ -94,6 +117,9 @@ def generate_top_bottom_3():
 ========
                 
                 # Use 'First Name' instead of 'Player'
+<<<<<<<< HEAD:Exercise2/Ex2.py
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
+========
 >>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
                 top3 = df[['First Name', 'Team', stat]].nlargest(3, stat)
                 f.write("\nTop 3:\n")
@@ -101,6 +127,10 @@ def generate_top_bottom_3():
                     value = row[stat] if not pd.isna(row[stat]) else 0
                     f.write(f"{row['First Name']} ({row['Team']}): {value:.2f}\n")
 <<<<<<<< HEAD:Exercise2/Ex2.py
+<<<<<<<< HEAD:Exercise2/Ex2.py
+========
+                
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
 ========
                 
 >>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
@@ -115,6 +145,7 @@ def generate_top_bottom_3():
 def calculate_statistics():
     try:
         teams = df['Team'].unique().tolist()
+<<<<<<<< HEAD:Exercise2/Ex2.py
 <<<<<<<< HEAD:Exercise2/Ex2.py
         results = pd.DataFrame(columns=['Statistic'] + teams + ['all'])
         for stat in stats_columns:
@@ -145,6 +176,14 @@ def calculate_statistics():
         for stat in stats_columns:
             stat_data = df[stat]
             if stat_data.count() > 0:
+========
+        # Initialize an empty list to collect rows
+        results_list = []
+        
+        for stat in stats_columns:
+            stat_data = df[stat]
+            if stat_data.count() > 0:
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
                 # Create a dictionary for overall stats
                 stat_dict = {
                     'Statistic': [f'Median of {stat}', f'Mean of {stat}', f'Std of {stat}'],
@@ -166,6 +205,9 @@ def calculate_statistics():
             results.to_csv('results2.csv', index=False, float_format="%.2f", encoding='utf-8')
         else:
             print("No statistics to calculate.")
+<<<<<<<< HEAD:Exercise2/Ex2.py
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
+========
 >>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
     except Exception as e:
         print(f"Error in calculate_statistics: {e}")
@@ -189,6 +231,9 @@ def generate_histograms():
 <<<<<<<< HEAD:Exercise2/Ex2.py
 ========
             
+<<<<<<<< HEAD:Exercise2/Ex2.py
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
+========
 >>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
             for team in df['Team'].unique():
                 safe_team = re.sub(r'[\n<>:"/\\|?*()]', '_', team).replace(' ', '_').strip('_')
@@ -201,8 +246,12 @@ def generate_histograms():
                     plt.xlabel(stat)
                     plt.ylabel('Frequency')
 <<<<<<<< HEAD:Exercise2/Ex2.py
+<<<<<<<< HEAD:Exercise2/Ex2.py
                     safe_filename = os.path.join(histograms_dir, f'{safe_team}_{safe_stat}.png')
                     plt.savefig(safe_filename, bbox_inches='tight')
+========
+                    plt.savefig(f'histograms/{safe_team}_{safe_stat}.png', bbox_inches='tight')
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
 ========
                     plt.savefig(f'histograms/{safe_team}_{safe_stat}.png', bbox_inches='tight')
 >>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
@@ -218,6 +267,9 @@ def analyze_data():
 <<<<<<<< HEAD:Exercise2/Ex2.py
 ========
 
+<<<<<<<< HEAD:Exercise2/Ex2.py
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
+========
 >>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
         for stat in stats_columns:
             if team_stat[stat].count() > 0:
@@ -258,10 +310,15 @@ def analyze_data():
             for team, count in leader_counts.items():
                 f.write(f"{team}: Leads in {count} statistics\n")
 <<<<<<<< HEAD:Exercise2/Ex2.py
+<<<<<<<< HEAD:Exercise2/Ex2.py
             f.write("\nBest-Performing Team Analysis:\n")
             f.write(f"Based on the analysis, {best_team} is considered the best-performing team in the 2024-2025 Premier League season.\n")
             f.write(f"This team leads in {best_team_count} out of {len(stats_columns)} statistics, indicating strong performance across multiple aspects of the game, such as goals, assists, defensive actions, and possession metrics.\n")
             f.write("This analysis is based on mean statistics per team, which reflects the overall contribution of players with more than 90 minutes of playtime.\n")
+========
+            f.write("\nBest-Performing Team:\n")
+            f.write(f"{best_team} leads in {best_team_count} statistics, showing strength across multiple metrics.\n")
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
 ========
             f.write("\nBest-Performing Team:\n")
             f.write(f"{best_team} leads in {best_team_count} statistics, showing strength across multiple metrics.\n")
@@ -277,6 +334,10 @@ def sanitize_filename(filename):
     return filename
 
 <<<<<<<< HEAD:Exercise2/Ex2.py
+<<<<<<<< HEAD:Exercise2/Ex2.py
+========
+# Run functions
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py
 ========
 # Run functions
 >>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex2.py

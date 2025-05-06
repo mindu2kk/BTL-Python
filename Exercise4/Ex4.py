@@ -228,4 +228,7 @@ with open('transfer_value_explanation1.txt', 'w', encoding='utf-8') as f:
     f.write("- Hạn chế: Thiếu dữ liệu hợp đồng, thương hiệu. Có thể bổ sung từ Transfermarkt.\n")
 
 print("Explanation saved to transfer_value_explanation.txt")
+<<<<<<<< HEAD:Exercise4/Ex4.py
+>>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex4.py
+========
 >>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex4.py
