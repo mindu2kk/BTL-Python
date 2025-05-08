@@ -10,18 +10,14 @@ from sklearn.decomposition import PCA
 from sklearn.metrics import silhouette_score
 from sklearn.impute import SimpleImputer
 
-# Suppress the FutureWarning for replace
 pd.set_option('future.no_silent_downcasting', True)
 
-# Get the directory of the script and construct paths
 script_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(script_dir, "..", "Exercise1", "results.csv")
-print(f"Attempting to load file from: {file_path}")  # Debug: Print the resolved path
+print(f"Attempting to load file from: {file_path}")
 
-# Load the data with the same encoding as the first script
 df = pd.read_csv(file_path, encoding='utf-8')
 
-# Clean percentage columns
 percent_cols = ['Won%', 'Save%', 'CS%', 'Pen Save%']
 for col in percent_cols:
     if col in df.columns:
@@ -34,27 +30,21 @@ for col in percent_cols:
             / 100
         )
 
-# Convert GA90 to numeric if it exists
 if 'GA90' in df.columns:
     df['GA90'] = pd.to_numeric(df['GA90'], errors='coerce')
 
-# Define stats columns explicitly
 non_stats_columns = ['First Name', 'Nation', 'Team', 'Position', 'Age', 'Match played', 'Starts', 'Minutes']
 stats_columns = [col for col in df.columns if col not in non_stats_columns]
 
-# Convert all stats columns to numeric
 for stat in stats_columns:
     df[stat] = pd.to_numeric(df[stat], errors='coerce')
 
-# Impute missing values with mean
 imputer = SimpleImputer(strategy='mean')
 data_imputed = imputer.fit_transform(df[stats_columns])
 
-# Scale the data
 scaler = StandardScaler()
 scaled_data = scaler.fit_transform(data_imputed)
 
-# Elbow method and silhouette analysis
 inertia = []
 silhouette_scores = []
 K_range = range(2, 21)
@@ -64,23 +54,18 @@ for k in K_range:
     inertia.append(kmeans.inertia_)
     silhouette_scores.append(silhouette_score(scaled_data, kmeans.labels_))
 
-# Select optimal k based on silhouette score
 optimal_k = K_range[np.argmax(silhouette_scores)]
 print(f"Optimal number of clusters (based on silhouette score): {optimal_k}")
 
-# Perform KMeans clustering with optimal k
 kmeans = KMeans(n_clusters=optimal_k, random_state=42)
 clusters = kmeans.fit_predict(scaled_data)
 
-# PCA for visualization
 pca = PCA(n_components=2)
 principal_components = pca.fit_transform(scaled_data)
 
-# Explained variance ratio for PCA
 explained_variance_ratio = pca.explained_variance_ratio_
 print(f"Explained variance ratio by PCA components: {explained_variance_ratio}")
 
-# Plot the clusters
 plt.figure(figsize=(10, 6))
 scatter = plt.scatter(principal_components[:, 0], principal_components[:, 1], 
                      c=clusters, cmap='viridis', alpha=0.6)
@@ -91,7 +76,6 @@ plt.colorbar(scatter)
 plt.savefig(os.path.join(script_dir, 'player_clusters.png'), bbox_inches='tight')
 plt.close()
 
-# Plot elbow method and silhouette analysis
 plt.figure(figsize=(12, 5))
 plt.subplot(1, 2, 1)
 plt.plot(K_range, inertia, 'bx-')
@@ -107,7 +91,6 @@ plt.tight_layout()
 plt.savefig(os.path.join(script_dir, 'clustering_analysis.png'), bbox_inches='tight')
 plt.close()
 
-# Phân tích và giải thích kết quả phân cụm
 with open(os.path.join(script_dir, 'clustering_explanation.txt'), 'w', encoding='utf-8') as f:
     f.write("=== Phân tích phân cụm cầu thủ ===\n\n")
     f.write("1. Số lượng cụm tối ưu:\n")

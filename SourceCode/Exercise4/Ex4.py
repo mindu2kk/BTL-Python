@@ -13,15 +13,12 @@ import os
 import json
 from bs4 import BeautifulSoup
 
-# Suppress Pandas warnings
 pd.set_option('future.no_silent_downcasting', True)
 
-# Get the directory of the script and construct paths
 script_dir = os.path.dirname(os.path.abspath(__file__))
 file_path = os.path.join(script_dir, "..", "Exercise1", "results.csv")
-print(f"Attempting to load file from: {file_path}")  # Debug: Print the resolved path
+print(f"Attempting to load file from: {file_path}")  
 
-# Load results.csv from Part I
 try:
     df = pd.read_csv(file_path, encoding='utf-8')
     print("Columns in results.csv:", list(df.columns))
@@ -29,34 +26,27 @@ except FileNotFoundError:
     print(f"Error: {file_path} not found. Please ensure the file is in the specified directory.")
     exit(1)
 
-# Clean the 'Minutes' column
 df['Minutes'] = df['Minutes'].str.replace(',', '').pipe(pd.to_numeric, errors='coerce')
 
-# Filter players with more than 900 minutes
 df = df[df['Minutes'] > 900].copy()
 print(f"Number of players with >900 minutes: {len(df)}")
 
-# Cache file for transfer values
 cache_file = os.path.join(script_dir, 'transfer_cache.json')
 
-# Load cached data if exists
 def load_cache():
     if os.path.exists(cache_file):
         with open(cache_file, 'r') as f:
             return json.load(f)
     return {}
 
-# Save data to cache
 def save_cache(data):
     with open(cache_file, 'w') as f:
         json.dump(data, f)
 
-# Function to scrape transfer values from Transfermarkt's market value page
 def scrape_transfer_values(players):
     cache = load_cache()
     transfer_values = []
 
-    # Check cache for all players first
     for player in players:
         if player in cache:
             transfer_values.append({
@@ -64,13 +54,11 @@ def scrape_transfer_values(players):
                 'Transfer_Value_Millions_EUR': cache[player]
             })
 
-    # Get remaining players to scrape
     players_to_scrape = [p for p in players if p not in cache]
     if not players_to_scrape:
         print("All players found in cache.")
         return pd.DataFrame(transfer_values)
 
-    # Set up Selenium options
     options = Options()
     options.add_argument("--headless")
     options.add_argument("--disable-gpu")
@@ -144,13 +132,10 @@ def scrape_transfer_values(players):
 
     return pd.DataFrame(transfer_values)
 
-# Scrape transfer values for unique players
 transfer_df = scrape_transfer_values(df['First Name'].unique())
 
-# Merge transfer values with original DataFrame
 result_df = df.merge(transfer_df, on='First Name', how='left')
 
-# Save transfer values to CSV with error handling
 try:
     result_df[['First Name', 'Team', 'Position', 'Minutes', 'Transfer_Value_Millions_EUR']].to_csv(
         os.path.join(script_dir, 'transfer_values.csv'), index=False, encoding='utf-8'
@@ -169,8 +154,7 @@ except PermissionError as e:
 except Exception as e:
     print(f"Error saving file: {e}")
 
-<<<<<<<< HEAD:Exercise4/Ex4.py
-# Proposal for estimating player values
+
 with open(os.path.join(script_dir, 'transfer_value_explanation.txt'), 'w', encoding='utf-8') as f:
     f.write("=== Phương pháp cải tiến ước lượng giá trị ===\n\n")
     f.write("1. **Lựa chọn đặc trưng (Features):**\n")
@@ -211,8 +195,6 @@ with open(os.path.join(script_dir, 'transfer_value_explanation.txt'), 'w', encod
     f.write("- Cân bằng giữa performance hiện tại và tiềm năng phát triển [4][9]\n")
     f.write("- Giải thích được feature importance qua SHAP values [3][8]\n")
     f.write("\n\n")
-========
-# Proposal for estimating player values (shortened comments)
 with open('transfer_value_explanation1.txt', 'w', encoding='utf-8') as f:
     f.write("=== Phương pháp ước lượng giá trị chuyển nhượng cầu thủ ===\n\n")
     f.write("1. Lựa chọn đặc trưng:\n")
@@ -228,7 +210,4 @@ with open('transfer_value_explanation1.txt', 'w', encoding='utf-8') as f:
     f.write("- Hạn chế: Thiếu dữ liệu hợp đồng, thương hiệu. Có thể bổ sung từ Transfermarkt.\n")
 
 print("Explanation saved to transfer_value_explanation.txt")
-<<<<<<<< HEAD:Exercise4/Ex4.py
->>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex4.py
-========
->>>>>>>> 16972be867b5eaf709417a0dbd07f7f4fc14000c:Ex4.py
+

@@ -88,7 +88,6 @@ TABLE_IDS = {
     "misc": "stats_misc"
 }
 
-# Get the script directory and define cache file path
 script_dir = os.path.dirname(os.path.abspath(__file__))
 CACHE_FILE = os.path.join(script_dir, "fbref_cache.json")
 
@@ -202,19 +201,15 @@ def scrape_all_stats(force_scrape=False):
     with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
         executor.map(process_table, URLS.keys())
 
-    # Filter players with > 90 minutes
     filtered_players = {
         player: data for player, data in all_players_data.items()
         if parse_minutes(data.get("Minutes_raw", "0")) > 90
     }
 
-    # Log filtered players count
     logging.info(f"Found {len(filtered_players)} players with > 90 minutes")
 
-    # Define required columns
     required_columns = ["First Name"] + [stat_name for stats in STAT_CATEGORIES.values() for stat_name, _ in stats]
 
-    # Fill missing values with "N/a"
     for player in filtered_players:
         for col in required_columns:
             filtered_players[player][col] = filtered_players[player].get(col, "N/a")
@@ -223,12 +218,10 @@ def scrape_all_stats(force_scrape=False):
     df = pd.DataFrame.from_dict(filtered_players, orient="index").reset_index(drop=True)
     df = df[required_columns].sort_values(by="First Name").reset_index(drop=True)
 
-    # Ensure no duplicate indices
     if not df.index.is_unique:
         logging.warning("Duplicate indices detected in final DataFrame")
         df = df.drop_duplicates().reset_index(drop=True)
 
-    # Replace any remaining NaN or empty values with "N/a"
     df = df.fillna("N/a")
     df = df.replace("", "N/a")
 
